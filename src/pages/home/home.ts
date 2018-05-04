@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform, NavParams } from 'ionic-angular';
+import { GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,59 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  map: GoogleMap;
+
+  constructor(public navCtrl: NavController,
+    private platform: Platform,
+    public navParams: NavParams) {
+
+    this.platform.ready().then(() => {
+      this.loadMap();
+    });
 
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad GoogleMapNativePage');
+  }
+
+  loadMap() {
+    this.map = new GoogleMap('map', {
+      'backgroundColor': 'white',
+      'controls': {
+        'compass': true,
+        'myLocationButton': true,
+        'myLocation': true,
+        'indoorPicker': true,
+        'zoom': true
+      },
+      'gestures': {
+        'scroll': true,
+        'tilt': true,
+        'rotate': true,
+        'zoom': true
+      },
+      'camera': {
+        'target': {
+          lat: 37.5666103,
+          lng: 126.9783882
+        },
+        'tilt': 0,
+        'zoom': 16,
+        //'bearing': 50
+      }
+    });
+
+    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+      this.map.addMarker({
+        position: {
+          lat: 37.5666103,
+          lng: 126.9783882
+        },
+        title: "서울시청"
+      })
+    });
+  }
+
 
 }
