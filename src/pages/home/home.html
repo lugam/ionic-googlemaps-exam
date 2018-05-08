@@ -3,9 +3,14 @@
     <ion-title>
       Ionic Example - Google Maps
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <div id="map"></div>
+  <div id="map"></div>
 </ion-content>

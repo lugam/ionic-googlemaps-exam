@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, NavParams } from 'ionic-angular';
+import { NavController, Platform, NavParams, PopoverController } from 'ionic-angular';
 import { GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
+import { PopoverPage } from '../popover/popover';
 
 @Component({
   selector: 'page-home',
@@ -9,9 +10,11 @@ import { GoogleMap, GoogleMapsEvent } from '@ionic-native/google-maps';
 export class HomePage {
 
   map: GoogleMap;
+  myPosition: any;
 
   constructor(public navCtrl: NavController,
     private platform: Platform,
+    public popoverCtrl: PopoverController,
     public navParams: NavParams) {
 
     this.platform.ready().then(() => {
@@ -57,10 +60,24 @@ export class HomePage {
           lat: 37.5666103,
           lng: 126.9783882
         },
-        title: "서울시청"
+        title: "서울시청",
+        icon: 'blue'
       })
     });
   }
 
+
+  presentPopover(e) {
+    let popover = this.popoverCtrl.create(PopoverPage, {
+      map: this.map,
+      position: {
+        lat: 37.5666103,
+        lng: 126.9783882
+      }
+    });
+    popover.present({
+      ev: e
+    });
+  }
 
 }

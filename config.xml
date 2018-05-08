@@ -82,8 +82,8 @@
     <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDOuIgv7SLCgQebHVpgq_mtXIO4p8frmGg" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyDOuIgv7SLCgQebHVpgq_mtXIO4p8frmGg" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAKcLd2a6D60adh0fEb3Z7jdZslYP7yop0" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAKcLd2a6D60adh0fEb3Z7jdZslYP7yop0" />
     </plugin>
     <engine name="android" spec="7.0.0" />
 </widget>
