@@ -74,9 +74,6 @@ export class PopoverPage {
             animation: 'DROP',
             //icon: color
           }).then((marker: Marker) => {
-            marker.addEventListener('click').subscribe(() => {
-              marker.showInfoWindow();
-            });
           })
 
         }
